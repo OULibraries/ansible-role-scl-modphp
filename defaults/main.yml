@@ -1,0 +1,6 @@
+---
+# defaults file for OULibraries.scl-modphp
+
+sclmodphp_global: true
+sclmodphp_version: "rh-php72"
+sclmodphp_httpd_version: "httpd24"

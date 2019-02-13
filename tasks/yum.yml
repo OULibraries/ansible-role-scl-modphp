@@ -1,0 +1,39 @@
+---
+- name: Install latest scl repo
+  yum:
+    state: present
+    name: centos-release-scl
+
+- name: Install SCL Apache
+  yum:
+    state: present
+    name:
+      - "{{sclmodphp_httpd_version }}-httpd"
+      - "{{sclmodphp_httpd_version }}-httpd-tools"
+      - "{{sclmodphp_httpd_version }}-libcurl"
+      - "{{sclmodphp_httpd_version }}-libnghttp2"
+      - "{{sclmodphp_httpd_version }}-mod_ssl"
+      - "{{sclmodphp_httpd_version }}-runtime"
+
+- name: Install SCL mod_php
+  yum:
+    state: present
+    name:
+      - "{{sclmodphp_version}}"
+      - "{{sclmodphp_version}}-php"
+      - "{{sclmodphp_version}}-php-cli"
+      - "{{sclmodphp_version}}-php-common"
+      - "{{sclmodphp_version}}-php-devel"
+      - "{{sclmodphp_version}}-php-gd"
+      - "{{sclmodphp_version}}-php-json"
+      - "{{sclmodphp_version}}-php-mbstring"
+      - "{{sclmodphp_version}}-php-mysqlnd"
+      - "{{sclmodphp_version}}-php-opcache"
+      - "{{sclmodphp_version}}-php-pdo"
+      - "{{sclmodphp_version}}-php-pear"
+      - "{{sclmodphp_version}}-php-pecl-apcu"
+      - "{{sclmodphp_version}}-php-process"
+      - "{{sclmodphp_version}}-php-soap"
+      - "{{sclmodphp_version}}-php-xml"
+      - "{{sclmodphp_version}}-php-zip"
+      - "{{sclmodphp_version}}-runtime"
