@@ -16,4 +16,27 @@
     group: wheel
   when: sclmodphp_global
 
- 
+- name: Ensure php cache-utils path exists
+  file:
+    path: /opt/php/cache-utils
+    owner: apache
+    group: apache
+    state: directory
+
+- name: Copy cache control scripts
+  copy:
+    src: "{{ item }}"
+    dest: /opt/php/cache-utils
+    mode: 0755
+    owner: apache
+    group: apache
+  loop:
+    - opcache.php
+    - cache_clear.php
+
+- name: Copy cache control httpd config
+  copy:
+    src: cache-control.conf
+    dest: "/opt/rh/{{sclmodphp_httpd_version}}/root/etc/httpd/conf.d"
+    owner: apache
+    group: apache
