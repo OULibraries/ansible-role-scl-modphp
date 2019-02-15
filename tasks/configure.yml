@@ -40,3 +40,12 @@
     dest: "/opt/rh/{{sclmodphp_httpd_version}}/root/etc/httpd/conf.d"
     owner: apache
     group: apache
+
+- name: Install php.ini
+  template:
+    src: php.ini.j2
+    dest: /etc/opt/rh/{{sclmodphp_version}}/php.ini
+    mode: 0644
+    owner: root
+    group: wheel
+
