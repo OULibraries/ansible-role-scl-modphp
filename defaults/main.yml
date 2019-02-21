@@ -4,3 +4,8 @@
 sclmodphp_global: true
 sclmodphp_version: "rh-php72"
 sclmodphp_httpd_version: "httpd24"
+
+sclmodphp_memory_limit : "128M"
+sclmodphp_post_max_size: "8M"
+scmmodphp_upload_max_filesize: "2M"
+
