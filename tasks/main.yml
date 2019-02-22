@@ -1,5 +1,5 @@
 ---
-# tasks file for OULibraries.scl-modphp
+# tasks file for OULibraries.sclmodphp
 - include: yum.yml
 
 - include: configure.yml
