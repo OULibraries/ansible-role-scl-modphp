@@ -1,0 +1,26 @@
+---
+
+- name: Ensure ssl cert directory exists
+  file: 
+    path: "{{ sclmodphp_cert_path }}/star.{{ sclmodphp_dn_suffix }}" 
+    state: directory
+
+- name: Ensure ssl key directory exists
+  file: 
+    path: "{{ sclmodphp_key_path }}/star.{{ sclmodphp_dn_suffix }}" 
+    state: directory
+
+- name: Generate a self-signed cert.
+  become: true
+  command: >
+    openssl req -newkey rsa:2048 -nodes -sha256 -x509 
+    -subj "/C=US/ST=Oklahoma/L=Norman/O=University of Oklahoma/OU=OU Libraries/CN=*.{{ sclmodphp_dn_suffix }}" 
+    -days 90 
+    -keyout "{{ sclmodphp_key_path }}/star.{{ sclmodphp_dn_suffix }}/privkey.pem"
+    -out "{{ sclmodphp_cert_path }}/star.{{ sclmodphp_dn_suffix }}/cert.pem"
+
+- name: Create a dummy chain file
+  become: true
+  shell: >
+    echo \# > "{{ sclmodphp_cert_path }}/star.{{ sclmodphp_dn_suffix }}/chain.pem"
+

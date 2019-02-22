@@ -13,3 +13,7 @@ sclmodphp_session_cookie_lifetime: 0
 sclmodphp_session_gc_probability : 1
 sclmodphp_session_gc_divisor: "1000"
 sclmodphp_session_gc_maxlifetime : "1440"       
+
+sclmodphp_cert_path: '/etc/pki/tls/certs/' 
+sclmodphp_key_path: '/etc/pki/tls/private/'
+sclmodphp_dn_suffix: 'localhost'

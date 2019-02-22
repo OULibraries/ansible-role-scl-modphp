@@ -4,7 +4,14 @@
     state: present
     name: centos-release-scl
 
-- name: Install SCL Apache
+
+- name: Install openssl
+  yum:
+    state: present
+    name: 
+      - openssl 
+
+- name: Install SCL httpd
   yum:
     state: present
     name:

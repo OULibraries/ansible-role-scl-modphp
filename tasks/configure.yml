@@ -41,6 +41,18 @@
     owner: apache
     group: apache
 
+- name: Copy ssl config
+  copy:
+    src:  00ssl.include 
+    dest: "/opt/rh/{{sclmodphp_httpd_version}}/root/etc/httpd/conf.d"
+    owner: apache
+    group: apache
+        
+- name: Set environment variables for apache
+  template:
+    src: sysconfig-httpd.j2
+    dest: "/opt/rh/{{sclmodphp_httpd_version}}/root/etc/sysconfig/httpd"
+
 - name: Install php.ini
   template:
     src: php.ini.j2
