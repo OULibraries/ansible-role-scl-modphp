@@ -7,5 +7,9 @@ sclmodphp_httpd_version: "httpd24"
 
 sclmodphp_memory_limit : "128M"
 sclmodphp_post_max_size: "8M"
-scmmodphp_upload_max_filesize: "2M"
-
+sclmodphp_upload_max_filesize: "2M"
+sclmodphp_date_timezone: "America/Chicago"
+sclmodphp_session_cookie_lifetime: 0
+sclmodphp_session_gc_probability : 1
+sclmodphp_session_gc_divisor: "1000"
+sclmodphp_session_gc_maxlifetime : "1440"       
