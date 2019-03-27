@@ -4,6 +4,6 @@
 
 - include: configure.yml
 
-- include: self-signed-cert.yml 
+- include: self-signed-cert.yml
 
 - include: composer.yml

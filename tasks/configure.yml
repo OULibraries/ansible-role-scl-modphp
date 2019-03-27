@@ -16,6 +16,13 @@
     group: wheel
   when: sclmodphp_global
 
+- name: Allow apache group access to web logs
+  file:
+    path: "/var/log/{{sclmodphp_httpd_version}}"
+    mode: 0750
+    owner: root
+    group: apache
+
 - name: Ensure php cache-utils path exists
   file:
     path: /opt/php/cache-utils
@@ -43,11 +50,11 @@
 
 - name: Copy ssl config
   copy:
-    src:  00ssl.include 
+    src:  00ssl.include
     dest: "/opt/rh/{{sclmodphp_httpd_version}}/root/etc/httpd/conf.d"
     owner: apache
     group: apache
-        
+
 - name: Set environment variables for apache
   template:
     src: sysconfig-httpd.j2
@@ -60,4 +67,7 @@
     mode: 0644
     owner: root
     group: wheel
+
+
+
 
