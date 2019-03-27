@@ -1,10 +1,14 @@
 ---
 # defaults file for OULibraries.scl-modphp
 
+# Should this be the global default php for all users
 sclmodphp_global: true
+
+# Specify versions to install 
 sclmodphp_version: "rh-php72"
 sclmodphp_httpd_version: "httpd24"
 
+# PHP  Settings
 sclmodphp_memory_limit : "128M"
 sclmodphp_post_max_size: "8M"
 sclmodphp_upload_max_filesize: "2M"
@@ -14,6 +18,7 @@ sclmodphp_session_gc_probability : 1
 sclmodphp_session_gc_divisor: "1000"
 sclmodphp_session_gc_maxlifetime : "1440"       
 
+# Self-signed cert settings
 sclmodphp_cert_path: '/etc/pki/tls/certs/' 
 sclmodphp_key_path: '/etc/pki/tls/private/'
 sclmodphp_dn_suffix: 'localhost'
